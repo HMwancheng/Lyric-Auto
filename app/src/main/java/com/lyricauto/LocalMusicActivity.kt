@@ -12,13 +12,15 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.documentfile.provider.DocumentsContract
 import com.lyricauto.adapter.LocalMusicAdapter
 import com.lyricauto.databinding.ActivityLocalMusicBinding
 import com.lyricauto.model.LocalMusic
 import com.lyricauto.utils.LyricCacheManager
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.io.File
 
 class LocalMusicActivity : AppCompatActivity() {

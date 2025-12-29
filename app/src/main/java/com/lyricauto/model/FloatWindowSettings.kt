@@ -6,17 +6,17 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class FloatWindowSettings(
-    val fontSize: Int = 16,
-    val textColor: Int = Color.WHITE,
-    val currentLineColor: Int = Color.parseColor("#FFD700"),
-    val backgroundColor: Int = Color.parseColor("#80000000"),
-    val animationType: AnimationType = AnimationType.FADE,
-    val positionType: PositionType = PositionType.CENTER,
-    val customX: Int = 0,
-    val customY: Int = 0,
-    val showInStatusBar: Boolean = false,
-    val autoDownload: Boolean = true,
-    val enableCache: Boolean = true
+    var fontSize: Int = 16,
+    var textColor: Int = Color.WHITE,
+    var currentLineColor: Int = Color.parseColor("#FFD700"),
+    var backgroundColor: Int = Color.parseColor("#80000000"),
+    var animationType: AnimationType = AnimationType.FADE,
+    var positionType: PositionType = PositionType.CENTER,
+    var customX: Int = 0,
+    var customY: Int = 0,
+    var showInStatusBar: Boolean = false,
+    var autoDownload: Boolean = true,
+    var enableCache: Boolean = true
 ) : Parcelable {
     enum class AnimationType {
         NONE, FADE, SLIDE, SCALE

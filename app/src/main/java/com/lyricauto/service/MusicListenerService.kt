@@ -29,6 +29,8 @@ class MusicListenerService : Service() {
     private val serviceScope = CoroutineScope(Dispatchers.Main + SupervisorJob())
     private var metadataExtractor: MusicMetadataExtractor? = null
     private var currentMusicInfo: MusicInfo? = null
+    private var lastBroadcastTime: Long = 0
+    private val broadcastDebounceDelay: Long = 1000
 
     private val musicStateReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {

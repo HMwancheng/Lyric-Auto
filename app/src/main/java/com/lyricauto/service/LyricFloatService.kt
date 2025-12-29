@@ -51,6 +51,7 @@ class LyricFloatService : Service() {
     private var currentTime: Long = 0
     private var settings: FloatWindowSettings = FloatWindowSettings()
     private val prefsManager: SharedPreferencesManager by lazy { SharedPreferencesManager(this) }
+    private var lyricUpdateJob: Job? = null
 
     private val musicUpdateReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {

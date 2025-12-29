@@ -1,14 +1,19 @@
 package com.lyricauto
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.SeekBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.lyricauto.databinding.ActivitySettingsBinding
 import com.lyricauto.model.FloatWindowSettings
 import com.lyricauto.service.LyricFloatService
 import com.lyricauto.utils.SharedPreferencesManager
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class SettingsActivity : AppCompatActivity() {
 

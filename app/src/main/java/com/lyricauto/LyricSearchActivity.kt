@@ -8,13 +8,17 @@ import android.os.Bundle
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lyricauto.adapter.LyricSearchAdapter
 import com.lyricauto.databinding.ActivityLyricSearchBinding
 import com.lyricauto.model.Lyric
 import com.lyricauto.network.LyricSearchResult
 import com.lyricauto.utils.LyricCacheManager
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class LyricSearchActivity : AppCompatActivity() {
 

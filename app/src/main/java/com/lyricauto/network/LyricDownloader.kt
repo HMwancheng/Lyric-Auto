@@ -119,7 +119,7 @@ class LyricDownloader {
             val query = if (artist.isNotEmpty()) "$title $artist" else title
             val encodedQuery = URLEncoder.encode(query, "UTF-8")
 
-            val request = Request.Builder()
+            val searchRequest = Request.Builder()
                 .url("https://music.163.com/api/search/pc?s=$encodedQuery&type=1&limit=10")
                 .addHeader("User-Agent", "Mozilla/5.0")
                 .build()

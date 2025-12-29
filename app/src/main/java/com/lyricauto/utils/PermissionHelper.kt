@@ -8,6 +8,7 @@ import android.os.Build
 import android.provider.Settings
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 
 object PermissionHelper {
     fun hasOverlayPermission(context: Context): Boolean {
@@ -18,7 +19,7 @@ object PermissionHelper {
         }
     }
 
-    fun requestOverlayPermission(activity: Activity, launcher: ActivityResultLauncher<Intent, android.app.ActivityResult>) {
+    fun requestOverlayPermission(activity: Activity, launcher: ActivityResultLauncher<Intent>) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             val intent = Intent(
                 Settings.ACTION_MANAGE_OVERLAY_PERMISSION,

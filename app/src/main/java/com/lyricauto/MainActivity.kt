@@ -4,8 +4,12 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.lyricauto.databinding.ActivityMainBinding
 import com.lyricauto.service.LyricDownloadService
@@ -17,6 +21,16 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private var isFloatWindowEnabled = false
+
+    private val overlayPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { _ ->
+        if (PermissionHelper.hasOverlayPermission(this)) {
+            startFloatWindow()
+        } else {
+            Toast.makeText(this, "需要悬浮窗权限", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     private val lyricDownloadReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
