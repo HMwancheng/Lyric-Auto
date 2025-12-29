@@ -99,6 +99,10 @@ class LocalMusicActivity : AppCompatActivity() {
         }
     }
 
+    private fun openFolderPicker() {
+        folderPickerLauncher.launch(null)
+    }
+
     private fun scanLocalMusic() {
         binding.scanBtn.isEnabled = false
         binding.scanStatusText.visibility = android.view.View.VISIBLE
